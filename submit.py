@@ -1,9 +1,9 @@
 import sys
+import base64
 
 def encode(prefix):
-    with open(prefix+".png", "rb") as f:
-        data = f.read()
-        encoded = data.encode("base64")
+    with open(prefix + ".png", "rb") as image_file:
+        encoded = 'data:image/png;base64,' + base64.b64encode(image_file.read()).decode("utf-8")
     return encoded
 
 def printresult(encoded, result):
